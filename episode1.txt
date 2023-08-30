@@ -1,0 +1,32 @@
+Every Elemenet in the react is an object 
+
+reactdom converts the react object into HTML which is then understood by 
+the browser 
+
+createElement tag uses 3 arguments, first is the HTML tag like <h1> , <p>
+<div> etc , second takes the Attributes like if we give an id or any other thing
+like that and third one is the children like having the content in it
+const heading = React.createElement("h1", {id: "heading"}, "Hello by React js");
+
+we can give third element which is children as another react element and createElement
+nested loops and make them into one another
+
+const parent = React.createElement("div",{id:"div"},
+React.createElement("h1", {id: "heading"}, "Hello by React js"));
+
+
+Also if we want to give more than two things in the same div let say here we are giving
+only 1 children as h1 tag and hellp by reactjs
+if we want to give another children h2 tag as hello two from react
+we then need to send a list i.e use square brackets as array
+
+ex:-
+
+const second = React.createElement("div",{id: "division"}, [
+    React.createElement("h1",{id:"head1"},"Hello myself React"),
+    React.createElement("h2",{id:"head2"},"Hello i am second react")
+]);
+
+root.render is replacing what so ever is already present in the given tag like we are placing it into
+div whose id is root then The whole HTML in will be replaced,
+rest other divs in the HTML will remain as it is
