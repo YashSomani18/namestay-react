@@ -30,3 +30,5 @@ const second = React.createElement("div",{id: "division"}, [
 root.render is replacing what so ever is already present in the given tag like we are placing it into
 div whose id is root then The whole HTML in will be replaced,
 rest other divs in the HTML will remain as it is
+
+

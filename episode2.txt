@@ -1,0 +1,114 @@
+package.json is the configuration for the npm
+it takes care of our dependencies of the project as we take other packages
+and use them directly in our project npm -> package.json takes care of it
+
+
+There are two types of dependencies that we can install
+1) Dev dependencies
+2) Normal dependencies
+
+* Dev dependencies:-
+generally required in development phase
+when we develop in app.
+
+*Normal dependencies:-
+Used in production also
+
+we gave npm install -D parcel
+-D tells the package manager (npm) that we want parcel only for dev dependency
+Parcel is a web application bundler
+
+
+"devDependencies": {
+    "parcel": "^2.9.3"
+  }
+
+  You see this here it comes as dev dependencies;
+
+  also one thing to note for the interviews 
+  "^2.9.3"
+
+  the (^)karet means it can be upgraded to minor updates like 2.9.4 or above but not 
+  3.0.0
+
+  and if we use (~)tidle then it will be upgraded to major updates and it is
+  generally avoided
+  
+
+  see in the files we are having package-lock.json
+  why is it there ? 
+
+  package-lock.json takes note of every version detail and locks it
+  it has exact version of it, and package.json has the aprox version of it
+  it takes the track of all the version
+  so it can verify when it goes on to production
+
+
+  node_modules is the kind of database of the packages that our project needs
+  it took approx 1 min to download, it downloaded this much modules on the system
+  it takes all the dependencies and install on our system
+  there are alot of memes regarding that online
+
+  if you want to know why so many modules got downloaded for the node_modules
+  as we only wanted parcel then parcel can have it's own dependencies and their
+  dependencies can have their, this is called
+  transistive dependencies.
+
+  we do not need to push our node_modules on the github
+  but we do need to
+  push our package_lock.json and package.json on our github
+
+  if you have your package.json and package_lock.json then you can create 
+  all your node_modules again even if we delete all the node_modules
+  if we delete the folder of node_modules and then type 
+  npm install in our terminal it will use package and package_lock to re create
+  all the files of our node_modules.
+
+  so it is useless to push node_modules on github.
+
+  git should have essential things what can be recreated it should not be 
+  put on git
+
+  npm means installing a package
+  npx means executing a package
+
+  CDN is not a preferred way to bring react to your app.
+
+  # Parcel
+  - Dev Build
+  - Local Server
+  - HMR - Hot Module Replacement
+  - File Watching algorithm - written in c++
+  - Caching - Faster builds
+  - Image optimization
+  - Minification
+  - Bundling
+  - Compress
+  - Consistent hashing
+  - Code splitting
+  - Differential bundling - support older browsers
+  - Diagnostics
+  - Error handling
+  - HTTPs
+  - Tree Shaking - remove unused codes
+  - Different dev and production bundles
+
+  you gave starting point to parcel as "index.html" but while npm init you gave
+  the starting point App.js
+  so when you are Building the app 
+  "npx parcel build index.html" it will throw an error so you need to go to
+  package.json and remove the 
+  ""main": "App.js","
+  and then build it.
+
+
+
+  We have a system on our system(local) -> git ->(fetches)-> server -> end user
+  so we donot need to give the files which we can get easily
+  so we do npm install on server as we have package.json and package_lock.json
+
+  
+   
+
+  
+
