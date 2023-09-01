@@ -1,0 +1,106 @@
+"scripts": {
+    "start":"parcel index.html",
+    "build":"parcel build index.html",
+    "test": "jest"
+  },
+
+  you set the start and build as the shortcuts in the package.json to run 
+  your command in the terminal
+
+  note:-
+  npm run start = npm start (only valid for start not for others like build)
+  npm start = npx parcel index.html
+
+  react.createElement is an object and when we render it on webpage it becomes 
+  html element
+
+  JSX and react are 2 different things
+  we can write react without using JSX at all but JSX makes our life easy 
+
+  JSX is not HTML in javascript. JSX is HTML or XML like syntax language
+
+  pure javascript is that JS engine of the browser understands it, It cannot understand JSX
+  so when we write the JSX parcel is doing the job so that JS Engine can understand it
+  so JSX is transpiled(converted) before it reaches the JS engine.
+  so PARCEL doesnot do this on his own it gives this task to "BABEL" package
+  which do this job for us.
+
+  so understand this cycle
+  JSX => React.createElement => React Element in JS => (rendering) => HTML element.
+  Babel is (transpiling)converting JSX into react.createElement
+
+  To give attributes in JSX we need to use camel case which is like (yashSomani , vinayakBeni);
+  also JSX is different from HTML as we can use class = "head" in HTML but to use same thing in
+  JSX we need to write className="head"
+
+  if you need to write it in single line it is fine else use "()" round brackets so BABEL can understand
+  where is jsx starting and ending.
+
+
+  This is React Element:::
+  const jsxHeading = (<h1 id="heading"> This is React using JSX</h1>);
+
+
+  Their are two types of components in react
+  1) Class Based components - OLD WAY of writing the code
+  2) Functional Based components - NEW WAY 
+
+  So we will study here both but first we will use the functional which is newer
+  and better way 
+
+  => React Functional Component
+  It is also a javascript function which returns some JSX
+  We need to name it with Capital Letter first
+
+  something about javascript:-
+  const fn = () => true
+  const fn2 = ()=>{
+    return true;
+  }
+
+  fn == fn2
+  they are one and same thing.
+
+  ..
+
+  root.render(jsxHeading); // this is how you render your react element
+  root.render(<HeadingComponent/>); // this is how you render your react component
+
+
+  => Component composition
+  if you put a react component into another react component it is called so
+  code:-
+  const HeadingComponent = () =>{
+    return (
+        <div>
+            <Title/>
+        <h1 className="heading">This is react functional component</h1>
+
+        </div>
+    )
+}
+  here title used in the HeadingComponent is the Component composition
+
+  also note that you donot need to use the arrow function of javascript 
+  you are doing javascript so you can use normal functions also
+   but arrow function is the industry standards so we will use it
+   const Func = function (){
+    return (
+        <div>
+            <HeadingComponent/>
+            <p>Do you know how yash is such a hardworking kid</p>
+        </div>
+    );
+}
+
+
+=>
+also if you want to use js in your jsx then put the js code in the "{}" curly
+brackets and write your code into it, it will work as JSX
+{HeadingComponent()}
+<HeadingComponent></HeadingComponent>
+<HeadingComponent/>
+  so we can call same thing in 3 ways like this
+
+  
+
