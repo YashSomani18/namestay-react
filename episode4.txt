@@ -1,0 +1,77 @@
+first make a planner draw a basic strucure how you want your site to be 
+and then proceed making it
+
+Planner for our Food delievering App:-
+1) Header
+    - LOGO
+    - Nav items
+2) Body 
+    - Search
+    - Restaurant container
+        =Restaurant card
+3) Footer
+    - Copyright
+    - Contact Us
+    - Address
+    - Links    
+
+
+
+To give inline css in JSX then you make another javascript object and put css in it and then in 
+you JSX code call style = {"name of the javascript object"}
+like this =>    <div className="res-card" style = {styleCard}>
+another way is =>        <h3 style={{padding:"10px"}}> Meghana Foods </h3>
+
+
+------PROPS------
+
+-props are just passing arguments to javascript function
+you can send any number of information from your calling and then it will be wrapped up as props
+and you can call it "{props.resName}" you call javascript like this in JSX.
+
+    CONFLICT DRIVEN UI:-
+    let's understand this with an example that like swiggy website shows different offers in different cities
+    so they are not making different websites for different cities, 
+    to plan this out and know your conflicts are called conflict driven UI
+
+
+  const RestaurantCard = (props) => {
+  const { resName, cuisine, stars, time } = props;
+
+  this is an ideal practice to use destructuring of javascript and use it effectively 
+  and you send details like this :-
+  <RestaurantCard
+          resName="Meghana Foods"
+          cuisine="Biryani, North Indian, Asian"
+          stars="4.3 stars"
+          time="30 Mins"
+        />
+
+
+ANOTHER WAY TO SEND DATA IS 
+<RestaurantCard
+    resData = {resObj}
+    />
+
+    you can make another javascript object and then store all the data in it and then pass it as 
+    resObj in the react to make it easy and simpler
+
+"?." this is optional chaining
+
+so in your code now,
+you can dynamically call the RestaurantCard by maping it using javascript
+
+<div className="res-container">
+    {
+        resList.map((restaurant) => (
+            <RestaurantCard key = {restaurant.data.id} resData = {restaurant}/>
+        ))
+    }
+</div>
+
+also remember whenever you are looping on to a map always give a keyto it, key is a reserved
+key word 
+react itself says that never use indexes as key. we can use it but it is not recommended
+
+
+
