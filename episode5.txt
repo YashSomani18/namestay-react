@@ -1,0 +1,81 @@
+Never keep hardcoded data in your component folder.
+Also never keep a hard coded url string link in your component folder
+
+one way to export data is using 
+"export default <name of the file>"
+
+another is named export
+as in a file there is only one default export but if we need to export more than that we need to use
+named export 
+
+in the named export you put the export in front of the function
+export const CDN_URL and in the importing file we need to use "{}" curly bracekts to call them
+import {CDN_URL} from "<place of the file>"
+
+when we are pressing the top rated restaurant the list is getting filtered 
+accordingly but UI is not changing
+
+    <button
+          className="filter-btn"
+          onClick={() => {
+            console.log("Button clicked");
+            listOfRestaurants = listOfRestaurants.filter(
+              (res) => res.stars > 4
+            );
+            console.log(listOfRestaurants);
+          }}
+        >
+          Top Rated Restaurant
+        </button>
+
+current listOfRestaurants is normal javascript variable
+
+we use State variable (which is superpowerful react variable)=> REACT HOOKS
+React is normal javascript functions
+there are multiple hooks out of which 2 are very commonly used
+- useState() => superpowerful local state variables in react
+    import as named import.
+    It maintains the state of your component
+
+- useEffect()
+
+
+
+------ LEARNING USESTATE FIRST-----
+const [listOfRestaurants] = useState([]); // react variable or state variable
+let listOfRestaurants // normal javascript variable
+    
+    - you take it as in arrays
+    - pass the default value in the useState which is empty array right now
+    - you pass your data into this empty array in the useState and it is your default
+    - but to modify it we need to pass a function, generally named as set"name of variable"
+
+const[listOfRestaurants , setlistOfRestaurants] = useState(["data"]);
+
+whenever a state variable is changes react re-renders the component
+React is good in DOM operations-> DOM manipulation that's why it is fast
+
+
+Q) How React works?
+reconciliation algorithm -> react fiber
+
+Actual DOM is
+  <div>
+    <div>
+      <div> 
+      we are having layers of div into div 
+
+      React creates a virtual DOM
+      virtual DOM -> representation of actual DOM
+
+      Diff algorithm -> it tells you the old virtual DOM and new virtual DOM
+      react 16 got react fiber is a new way of finding the div and updating the DOM
+      so it finds the difference between the old and new and renders the new one
+      as comparing 2 HTML files are tough and slow whereas comparing 2 javascript
+      objects are fast that's why REACT is fast
+
+
+      whenever there is change in any state variable react will find the differnce and update the DOM
+      react is doing efficient DOM manilulation work bcoz it has virtual DOM
+      
+
