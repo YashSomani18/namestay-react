@@ -3,4 +3,4 @@ export const LOGO_URL =
 
 
 export const CDN_URL = 
-"https://sandhyahariharan.co.uk/wp-content/uploads/2015/12/vegetable-biryani-1-of-3.jpg"
+"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";

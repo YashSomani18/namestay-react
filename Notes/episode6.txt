@@ -1,0 +1,63 @@
+Here we will first discuss about the monolith:-
+So understand it by
+ we are having API , UI , DB , Authentication , SMS in our project
+ this all resides in one and even if we want to change the colour of a button
+ we need to deploy whole project after the change
+
+ so world is moving towards "Micro Service architecture"
+ we have different services for different things
+ so this is called "seperation of concerns" 
+
+ in monolith every thing was under one roof and together
+ in micro services different things have different services and they all 
+ are combined together.
+
+ each and every service has it's own job.
+ you can have different techstack for different services
+ all this micro services run on their own port
+
+
+ 2 approaches that UI fetch data from backend:-
+ first approach is loads-> api -> render
+ in this the app waits till the api fetches the data and then renders it
+
+ second approach is loads->render->api>re-render
+
+ in react we use 2nd approach
+ this is a better approach it gives us better UX
+ it is better coz in first the site appears to be frozen till it renders
+ in second it renders atleast the skeleton of the site and then re-renders
+ it is React's beauty we dont care much about re-rendering as it do it at
+ much faster pace.
+
+
+ --- useEffect
+ it will take 2 arguments
+
+ useEffect(()=>{
+
+ },[])
+ first -> function
+ second -> dependency array
+
+ it will call useEffect when it finishes rendering
+ so the whole body is rendered then useEffect(callback function) is called
+
+-----
+useState -> what is the superpower and how  
+usually in the normal js, react doesnot know what got changed so it cannot re render and update
+but usually state variable it keeps the track of and when the set function
+changes state variable re-renders and we got our updated value
+
+it will not only re-render the login button part of the code
+it will re-render the whole Header.js
+
+you can ask a very good question
+  const[btnNameReact , setbtnNameReact] = useState("Login");
+    here we know we can update the "btnNameReact" then why are we keeping constant
+    don't this is again javascript rules
+
+    ANS) - React re-renders everything with the updated value so this is a different
+    btnNameReact than Old one
+
+Whenever a local state variable is changed, react triggers a reconcilation cycle (re-renders)
