@@ -1,0 +1,105 @@
+when we donnot use the useEffect with a dependency array
+useEffect(()=>{
+
+},"[]") here this array is not present then useEffect will be called each and every
+time react re-renders the site
+
+if the dependency array is empty, useEffect is called once for the first time
+
+if we put something in the array then useEffect will be called only when
+dependency in the array changes.
+
+
+-Always call your useState inside your body component
+-Always call the useState top of function.
+-Never create your useState in your if else-> this can create inconsistency in your program
+but it is okay for javascript it is not wrong code it is wrong practice
+- Also Never create them in a for loop 
+
+
+*********************************************************************
+ROUTING:-
+
+Using npm i react-router-dom for routing purpose
+
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout/>
+  },
+  {
+    path:"/about",
+    element
+  }
+]);
+
+we give router the values
+in which we pass the array and in array we pass the path  and element
+
+to use createBrowserRouter we need another dependency from the react-router-dom
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+ which is router RouterProvider
+ then we need to pass it like this
+
+root.render(<RouterProvider router={appRouter} />);
+
+
+{
+    path: "/",
+    element: <AppLayout />,
+    errorElement:<Error/>
+  },
+
+  this way in it we can make our own customed error page
+
+  also we can use inbuild HOOK called use "useRouteError"
+
+  now we will import another import function from react-router-dom
+  which is "Outlet"-> this helps us in children routing
+  like if we want our header to be everywhere and other components
+  to be replaced with the links
+  we do it in children like this
+
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    children: [
+      {
+        path:"/",
+        element:<Body/>
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+    ],
+    errorElement: <Error />,
+  },
+]);
+
+
+When you want to route to some other page in react do-not ever use anchor tag
+because whole page is refreshed
+in react you can navigate to a new page without reloading the whole page
+
+for that purpose we will take "link" from react-router-dom
+
+<li><Link to="/about">About Us</Link></li>
+
+this helps to make your app very faster,
+though it works similar to anchor tag but it doesnot re-renders the whole page
+and hence it is faster 
+<Link to="/about">About Us</Link>
+<a href="/about">About</a>
+
+
+------
+Important 
+there are 2 types of Routing:-
+1) Client side routing-> When we first time load the app it already loads the about and contact page and then when we click on it, it shows it no network call has been made 
+2) Server side routing-> we make a call to the server and then fetch the HTML(from server).
