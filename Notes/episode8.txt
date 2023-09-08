@@ -1,0 +1,58 @@
+In this episode we are going to learn about class based components which is
+an older technique to write code in react, till now we did "functional components"
+which is way easier and newer way in th industry 
+
+functional components-> function which returns some sort of jsx
+class based components->class which has a render method which returns some jsx
+
+
+we donnot update the state variable in class components directly.
+
+first constructor and then render
+
+api is called in componentDidMount in class based components
+because:-
+we can call api in functional components using useEffect but here we need this
+
+constructor -> render -> componentDidMount
+
+we call api in the componentDidMount because
+we first want the react to render it and then make api call and then fill the data
+it is better UX we have already learnt this before
+
+React is faster because react has 2 phases
+1) Render
+2) COMMIT
+
+As we know DOM manipulation is the costliest method we tend to do it later and less time
+so we first batch the rendering all together and then update the UI in the commit phase
+
+parent constructor
+parent render
+    first child constructor
+    first child rendering
+
+    second child constructor
+    second child rendering
+
+
+    <DOM UPDATED IN SINGLE BATCH>
+    first child componentDidMount
+    second child componentDidMount
+parent componentDidMount
+
+mounting is done in commit phase
+hence calling API here is the best time
+
+--- MOUNTING CYCLE ----
+Constructor (dummy)
+Rendering (dummy)
+    <HTML Dummy></HTML>
+componentDidMount
+    <API CALL></API>
+    <this.setstate> -> State variable is UPDATED
+
+------UPDATE CYCLE -----
+    Rendering(API DATA)
+    <HTML new data></HTML>
+    componentDidUpdate
