@@ -1,0 +1,52 @@
+learning to optimize the code 
+
+learning how to make your own custom hook
+
+1) Know what you want as input
+2) Know what is your output
+
+
+App chunking or Code splitting or Dynamic Bundling or Dynamic import or On Demand Loading
+
+Here we know that for large application we need to divide the chunk in different files
+we need to optimize our app as we know parcel and babel are beast
+they will optimize your whole code in 1 javascript file and then do the Loading
+
+but let say our app is very big like makemytrip
+ and if we load all components together it will take time and we loose customers
+ we dont want that obviously here comes the role of
+
+ LAZY LOADING:-
+import React, { lazy, Suspense} from "react";
+
+firstly import these important files
+
+now do not normally import the files like 
+import Grocery from "./components/Grocery.js"
+
+now import using lazy
+
+const Grocery = lazy(() => {
+  return import("./components/Grocery");
+});
+lazy() 
+take a function/promise and return it
+const Grocery = lazy(() =>  import("./components/Grocery"));
+
+you can also do it like this, this is basic javascript
+
+after doing so
+now we will use Suspense
+
+
+    {
+        path: "/grocery",
+        element: (
+          <Suspense fallback={<h1>Hiiiii</h1>}>
+            <Grocery />
+          </Suspense>
+        ),
+      },
+
+
+

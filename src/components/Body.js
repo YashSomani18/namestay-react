@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -32,12 +33,14 @@ const Body = () => {
     }
   };
 
-  // Conditional Rendering
-  // if (listOfRestaurants.length === 0) {
-  //   return <Shimmer/>;
-  // }
+  if(useOnlineStatus ===false){
+    return (
+      <div>
+        <h1>Looks Like you are not connected to your internet connection</h1>
+      </div>
+    )
+  }
 
-  // we now use it in same return which looks nicer
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
