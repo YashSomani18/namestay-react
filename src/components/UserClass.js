@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class userClass extends React.Component {
   constructor(props) {
@@ -29,10 +30,10 @@ class userClass extends React.Component {
     const { name, location } = this.state.userInfo;
     
     return (
-      <div className="user-card">
+      <div className="user-card border border-black border-solid rounded-lg p-4 m-4 hover:bg-yellow-100">
         <h1>Name : {name}</h1>
         <h2>Location: {location}</h2>
-        <h2>Linkedin: @yashsomani_18</h2>
+        <h2>Linkedin: <Link to="https://www.linkedin.com/in/yashsomani18/">@yashsomani18</Link></h2>
       </div>
     );
   }

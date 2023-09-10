@@ -1,0 +1,43 @@
+Learning TAILWIND CSS :-
+
+npm install -D tailwindcss postcss
+npx tailwindcss init
+
+we need to do This,visit tailwind site and see what framework you are using and accordingly
+install it 
+
+here we instal tailwindcss -> which we are going to use already 
+postcss is -> a tool transforming css with javascript
+we donnot need to learn postcss to learn tailwindcss,
+so we just need to know tailwind uses postcss.
+
+we make a .postcssrc file and we make plugins in it
+{
+  "plugins": {
+    "tailwindcss": {}
+  }
+}
+
+this is the way we tell parcel to find tailwind classes in our code,
+and execute them
+
+now we make changes in the tailwind.config.js file
+by changing the format 
+content: [
+    "./src/**/*.{html,js,ts,jsx,tsx}",
+  ],
+
+  this means in the src folder if you find any file with .{html,js,ts,jsx,tsx}
+  then apply tailwind css for this files
+
+  now we need to delete all the code in our index.css and put
+  
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+    into the index.css file and never write another css code in it 
+
+
+    press control + space to get suggestions from intellisense
+    
