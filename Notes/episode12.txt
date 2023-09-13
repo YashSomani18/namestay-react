@@ -1,0 +1,22 @@
+Learning Redux :-
+
+Redux works with the DATA layer of the app
+redux is not mandatory, we may not need redux
+redux and react are different library
+use redux wisely 
+redux is not the only library -> zustand is another library
+redux offer easy debugging
+
+YES, it is okay to have all your data at one place in redux so you can access it from anywhere
+also we divide it into slices so it doesnot get clumpsy
+
+when we click the add button it dispatches(action)-> function -> then updates the cart 
+we cannot directly update the cart
+
+the function is known as "reducer"
+
+Note:- when you hit the add button it dispatches an action which calls the reducer function which updates the slice of redux store
+
+If we want to read data then we will use a selector that will give you data in the header and update cart
+selector is called subscribe the store
+we say so because if the data is updated in the cart it will automagically update the cart in header component
