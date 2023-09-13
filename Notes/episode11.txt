@@ -1,0 +1,101 @@
+higher order component is which takes a component and return a component
+it takes a component and enhances our code and then return it to component
+
+when we write higher order function they are pure functions
+pure functions :- it will not change the behaviour of RestaurantCard
+we are enhancing it only, adding something
+
+react has two layers UI and data
+
+This episode will learn Data layer:-
+
+<ul className="bg-gray-100 p-4 rounded-lg ">
+        {itemCards.map((item) => (
+          <li
+            key={item.card.info.id}
+            className="my-2 p-2 hover:bg-gray-200 rounded transition duration-200 ease-in-out"
+          >
+            <span className="font-semibold">{item.card.info.name}</span> - Rs{" "}
+            {item.card.info.price / 100 || item.card.info.defaultPrice / 100}
+          </li>
+        ))}
+      </ul>
+
+
+calling setfunction from the children to make change in the parent
+is this possible
+no it is not directly 
+but indirectly we can
+
+we will call them as props from the parent into it
+const RestaurantCategory = ({ data , showItems ,setShowIndex}) => {
+  //   console.log(data);
+
+  const handleClick = () =>{
+    setShowIndex();
+  }
+
+  showItems = true then it expands the accordian else no
+
+  setShowIndex is the useState function of the parent 
+  which we want to be changed by the child
+
+  in parent
+
+   {categories.map((category,index) => (
+        <RestaurantCategory
+          key={category?.card?.card?.title}
+          data={category?.card?.card}
+          showItems ={index === showIndex ? true : false}
+          setShowIndex={()=>setShowIndex(index)}
+        />
+      ))}
+
+      see this is how we call it indirectly and cleverly
+  const[showIndex , setShowIndex]= useState(0);
+
+this means the array[0] which is genrally recommended part is expanded initially
+but if we donot want that we can keep it null also
+
+this is called LIFTING STATE UP -> read the react document for this part
+
+
+there is a problem in react known as props drilling
+parent->child1->child2->child3
+
+if we want to pass any props from parent to child3 then it must go throught child1 and child2 also
+this problem is called react drilling
+
+but to get pass this
+we have
+react context 
+
+if we wrap the UserContext.Provider to the different divs with different value
+it will show different values only and it is valid to have nested UserContext.Provider
+
+it is powerful thing
+
+return (
+    <UserContext.Provider value= {{loggedInUser: userName}}>
+    <div className="app">
+      <Header />
+      <Outlet />
+    </div>
+    </UserContext.Provider>
+  );
+
+  for the whole app right now it will show userName which is (Yash Somani)
+
+  if i make another one in it and name it Vinayak Beni then for all those divs it will show Vinayak Beni
+
+  and let say we have some divs outside the AppLayout
+  then it will show the Default User only
+
+  you can do context work via REDUX 
+  redux is state management library.
+
+  if someone ask you difference between redux and context 
+  we can build big website using context also but redux makes our life easy
+   
+
+
