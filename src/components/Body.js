@@ -4,7 +4,6 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
-
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filterRestaurant, setFilterRestaurant] = useState([]);
@@ -26,11 +25,9 @@ const Body = () => {
       const restaurantsData =
         data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants;
-      
 
       console.log(restaurantsData);
 
-      
       setListOfRestaurants(restaurantsData || []);
       setFilterRestaurant(restaurantsData);
     } catch (error) {

@@ -20,3 +20,77 @@ Note:- when you hit the add button it dispatches an action which calls the reduc
 If we want to read data then we will use a selector that will give you data in the header and update cart
 selector is called subscribe the store
 we say so because if the data is updated in the cart it will automagically update the cart in header component
+
+
+#REDUX
+- Install @reduxjs/toolkit and react-redux
+- Build our store
+- Connect our store to our app
+- Slice (cartslice)
+- Selector (it is a hook inside react)
+
+
+Important redux interview questions
+Whenever  you are making useSelector, make sure you are subscribing to the right portion of the store otherwise it will
+big performance store
+
+  const cartItems = useSelector((store) => store.cart.items);
+
+  const store = useSelector((store)=>store);
+  const cartItems = store.card.items
+
+  they both are same as we look but here we are subscribing to a large portion and then get out the needed part
+  in first approach we subscribed the needed path
+
+  never do this, as when some other part of store is updated it will render here also
+  which means a performance loss, so only subscribe to the part needed is the best way 
+  and forget about the second way of solving it
+
+  see in the cartslice file
+
+  import { createSlice } from "@reduxjs/toolkit";
+
+const cartSlice = createSlice({
+  name: "cart",
+  initialState: {
+    items: [],
+  },
+  reducers: {
+    addItem: (state, action) => {
+      state.items.push(action.payload);
+    },
+    removeItemm: (state) => {
+      state.items.pop();
+    },
+    clearCart: (state) => {
+      state.items.length = 0;
+    },
+  },
+});
+
+export const { addItem, removeItemm, clearCart } = cartSlice.actions;
+
+export default cartSlice.reducer;
+
+
+we here use reducers as reducer = n number of different reducers in the slice file
+and when we export it we call it the single reducer
+
+
+where as in the appStore file
+
+import { configureStore } from "@reduxjs/toolkit";
+import cartReducer from "./cartSlice";
+
+const appStore = configureStore({
+    reducer:{
+        cart: cartReducer,
+    }
+});
+
+export default appStore;
+
+we call a reducer because different slice will have different reducer 
+like we had cart slice here
+we can have more than that so it is whole big function of many small reducers in it
+named as reducer function
