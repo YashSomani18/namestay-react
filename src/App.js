@@ -23,12 +23,11 @@ const AppLayout = () => {
     const data = {
       name: "Yash Somani",
     };
-
     setUserName(data.name);
   }, []);
   return (
     <Provider store={appStore}>
-      <UserContext.Provider value={{ loggedInUser: userName }}>
+       <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
         <div className="app">
           <Header />
           <Outlet />
@@ -68,9 +67,9 @@ const appRouter = createBrowserRouter([
         ),
       },
       {
-        path:"/Cart",
-        element:<Cart/>
-      }
+        path: "/Cart",
+        element: <Cart />,
+      },
     ],
     errorElement: <Error />,
   },

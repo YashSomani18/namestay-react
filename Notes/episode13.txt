@@ -1,0 +1,89 @@
+Types of testing a developer can do
+    - Unit testing => check each component in it.
+    - Integration testing => check compilation of different component
+    with each other
+    - End to End testing (e2e testing) => checks User landing on the page till the End, it requires 
+    different types of tools
+
+we are going to use react testing library which is build on DOM testing library
+we are also going to use jest, react and dom testing library use jest behind it
+jest is javascript testig library
+
+
+Setting up Testing in our library
+    - install react testing library
+    - install jest 
+    - install babel dependencies
+    - configure babel
+    - configure Parcel config file to disable default Babel transpilation
+    -  Jest config (npx jest --init)
+    - jsdom is a library which parses and interacts with assembled HTML just like a browser
+    to be used for testing
+    - install jsdom library for jest version 28 or above
+    - install @babel/preset-react - for JSX to work in the test files
+    - Include the @babel/preset-react inside our the babel config file
+    - Install @testing-library/jest-dom
+
+make a Folder (not file) named "__tests__" in which we will be writing our testcases
+or we can make a file named 
+(spec|test).[tj]s?(x)
+means 
+Header.test.js maybe js or ts 
+Header.spec.js
+
+fact:-   __tests__ => "__" these two times _ _ is called dunder method
+
+In the test file we use the "test" function which takes 2 arguments
+a string and a callback function
+
+test("Sum fn should calc sum of 2 numbers ", () => {
+  const result = sum(3, 4);
+
+  // Assertion
+  expect(result).toBe(7);
+});
+
+we can pass without any expect so it will always return PASS
+
+When we are going to test react component then we need to call render from testing/library-react
+and the component from src
+
+it will render on jsdom(like the browser thing)
+
+
+
+test("Should Contact work or not", () => {
+  render(<Contact />);
+  const heading = screen.getByRole("heading");
+
+  expect(heading).toBeInTheDocument(heading);
+});
+
+
+we will understand now what is screen and expect doing here
+beauty of jest is it tells u what renders on the screen if the test case fails
+
+also to getByRole(textBox)  we use textBox for the <input>
+if we want multiple items then use getAllByRole
+
+
+let say we have 20 test cases in a file and it is huge to look into and manage
+for such cases we can use describe("",()=>{
+  // all your relative tests in this describe box;
+})
+
+you can group together few tests which are similar to each other.
+fact:- "test" is the name of the function in which we write our testcase, so it has another name "it"
+
+Also note that if we want any file which uses redux we again need to wrap it inside provider and give appstore name to it
+in the test files
+
+
+when we render in the test section about the fetch in our code it will show an error
+coz it runs the app on jsdom(which is browser like)
+and fetch is the superpower of our browser only so it doesnot works on jsdom
+
+if you want that u should not rewrite the npm run test then u can do
+watch-test: "jest --watch"
+
+in ur package json file and write npm run watch-test in our terminal so it continues to work
