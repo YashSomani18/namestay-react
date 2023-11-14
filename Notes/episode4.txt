@@ -1,7 +1,7 @@
-first make a planner draw a basic strucure how you want your site to be 
-and then proceed making it
+first, make a planner and draw a basic structure of how you want your site to be 
+and then proceed to make it
 
-Planner for our Food delievering App:-
+Planner for our Food delivering App:-
 1) Header
     - LOGO
     - Nav items
@@ -25,22 +25,19 @@ another way is =>        <h3 style={{padding:"10px"}}> Meghana Foods </h3>
 
 ------PROPS------
 
--props are just passing arguments to javascript function
+-props are just passing arguments to a javascript function
 you can send any number of information from your calling and then it will be wrapped up as props
-and you can call it "{props.resName}" you call javascript like this in JSX.
+and you can call it "{props.resName}" You call javascript like this in JSX.
 
     CONFLICT DRIVEN UI:-
-    let's understand this with an example that like swiggy website shows different offers in different cities
+    let's understand this with an example that like Swiggy website shows different offers in different cities
     so they are not making different websites for different cities, 
-    to plan this out and know your conflicts are called conflict driven UI
+    to plan this out and know your conflicts are called conflict-driven UI
 
 
 
-
-
-
-=> This is the code till expisode 4 now we are going to make changes in the code
-so it will get lost as we push on the github so we are maintaining the data in 
+=> This is the code till episode 4 now we are going to make changes in the code
+so it will get lost as we push on the GitHub so we are maintaining the data in 
 the notes file like .txt files  <=
 
 
